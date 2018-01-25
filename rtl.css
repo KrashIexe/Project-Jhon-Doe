@@ -1,0 +1,651 @@
+/*!
+Theme Name: Perennial
+
+Adding support for language written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+http://codex.wordpress.org/Right_to_Left_Language_Support
+*/
+
+/*--------------------------------------------------------------
+1.0 Normalize
+--------------------------------------------------------------*/
+body {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+caption, th, td {
+  text-align: right;
+}
+
+/*--------------------------------------------------------------
+3.5 Blockquote
+--------------------------------------------------------------*/
+blockquote blockquote {
+  margin: 15px 30px 0 0;
+  margin: 0.9375rem 1.875rem 0 0;
+}
+blockquote:before {
+  content: "\f10e";
+  left: auto;
+  right: 0;
+}
+
+/*--------------------------------------------------------------
+3.6 Dropcap
+--------------------------------------------------------------*/
+.dropcap {
+  float: right;
+  margin: 0 0 0 15px;
+  margin: 0 0 0 0.9375rem;
+}
+
+/*--------------------------------------------------------------
+4.2 List
+--------------------------------------------------------------*/
+ul, ol {
+  margin: 0 36px 26px 0;
+  margin: 0 2.25rem 1.625rem 0;
+}
+li > ul,
+li > ol {
+  margin-left: 0;
+  margin-right: 24px;
+  margin-right: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+4.3 Table
+--------------------------------------------------------------*/
+/* Table Reflow */
+.table-reflow thead {
+  float: right;
+}
+.table-reflow tr {
+  float: right;
+}
+
+/*--------------------------------------------------------------
+5.0 Accessibility
+--------------------------------------------------------------*/
+.screen-reader-text:focus {
+  right: 5px;
+  left: 0;
+}
+.site .skip-link {
+  left: 0;
+  right: -9999em;
+}
+.site .skip-link:focus {
+  left: 0;
+  right: 6px;
+}
+
+/*--------------------------------------------------------------
+8.1 Header Menu
+--------------------------------------------------------------*/
+/* Hamburger Menu */
+.hamburger-wrapper .hamburger .hamburger-icon, .hamburger-wrapper .hamburger .hamburger-icon:before, .hamburger-wrapper .hamburger .hamburger-icon:after {
+  left: 0;
+  right: auto;
+}
+.hamburger-wrapper .hamburger .hamburger-label {
+  left: 0;
+  right: auto;
+}
+.hamburger-wrapper .hamburger.active .hamburger-icon:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.hamburger-wrapper .hamburger.active .hamburger-icon:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/* Site Menu */
+.main-navigation {
+  left: 100%;
+  right: auto;
+  -webkit-transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.has-menu-open .main-navigation {
+  left: 0;
+  right: auto;
+}
+/* Site Header Menu */
+.site-header-menu {
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+/* Site Header Menu List */
+.header-menu ul {
+  margin-left: 0;
+  margin-right: 24px;
+  margin-right: 1.5rem;
+}
+.header-menu .dropdown-toggle {
+  left: 0;
+  right: auto;
+}
+.header-menu .page_item_has_children > a,
+.header-menu .menu-item-has-children > a {
+  padding-left: 40px;
+  padding-left: 2.5rem;
+  padding-right: 0;
+}
+
+/*--------------------------------------------------------------
+8.3 Social Menus
+--------------------------------------------------------------*/
+.widget_nav_menu div[class^="menu-social-"] ul li {
+  margin: 0 0 0 24px;
+  margin: 0 0 0 1.5rem;
+}
+
+/*--------------------------------------------------------------
+9.1 Navigation Archives
+--------------------------------------------------------------*/
+.pagination .prev.page-numbers:before {
+  content: "\f054";
+}
+.pagination .next.page-numbers:after {
+  content: "\f053";
+}
+
+/*--------------------------------------------------------------
+9.2 Navigation Post
+--------------------------------------------------------------*/
+.post-navigation .nav-previous a {
+  padding: 0 50px 0 0;
+  padding: 0 3.125rem 0 0;
+}
+.post-navigation .nav-previous a:before {
+  content: "\f105";
+  left: auto;
+  right: 0;
+}
+.post-navigation .nav-next {
+  text-align: left;
+}
+.post-navigation .nav-next a {
+  padding: 0 0 0 50px;
+  padding: 0 0 0 3.125rem;
+}
+.post-navigation .nav-next a:before {
+  content: "\f104";
+  left: 0;
+  right: auto;
+}
+
+/*--------------------------------------------------------------
+9.5 Navigation Common Styles: Comments, Attachments
+--------------------------------------------------------------*/
+.comment-navigation .nav-previous a:before,
+.image-navigation .nav-previous a:before {
+  content: "\f054";
+  margin: 0 0 0 5px;
+  margin: 0 0 0 0.3125rem;
+}
+.comment-navigation .nav-next a:after,
+.image-navigation .nav-next a:after {
+  content: "\f053";
+  margin: 0 5px 0 0;
+  margin: 0 0.3125rem 0 0;
+}
+
+/*--------------------------------------------------------------
+10.8 Sidebar
+--------------------------------------------------------------*/
+/* Sidebar Area */
+.sidebar-area {
+  left: auto;
+  right: 100%;
+  -webkit-transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.has-sidebar-open .sidebar-area {
+  right: 0;
+}
+.sidebar-area .sidebar {
+  -webkit-transform: translateX(-200%);
+          transform: translateX(-200%);
+}
+.sidebar-area .sidebar-close-control {
+  left: 7px;
+  right: auto;
+}
+
+
+/*--------------------------------------------------------------
+11.1 HEntry
+--------------------------------------------------------------*/
+/* Entry (Posts,Pages) Block */
+.post-wrapper-archive .hentry:nth-of-type(odd) .entry-image-wrapper {
+  left: 0;
+  right: auto;
+}
+.post-wrapper-archive .hentry:nth-of-type(even) .entry-image-wrapper {
+  right: 0;
+  left: auto;
+}
+.post-wrapper-archive .hentry:nth-of-type(even) .entry-content-wrapper {
+  margin: 10% 10% 0 0;
+}
+
+/*--------------------------------------------------------------
+11.2 Page Links
+--------------------------------------------------------------*/
+.page-links .page-links-title {
+  padding: 0 0 0 7px;
+  padding: 0 0 0 0.4375rem;
+}
+
+/*--------------------------------------------------------------
+11.4 Entry Meta
+--------------------------------------------------------------*/
+.entry-meta > span {
+  margin: 0 0 10px 15px;
+  margin: 0 0 0.625rem 0.9375rem;
+}
+.entry-meta.entry-meta-footer > span {
+  margin: 0 0 0 7px;
+  margin: 0 0 0 0.4375rem;
+}
+
+/* Category and Tags */
+.cat-links-single:after,
+.logged-in .tags-links-single:after {
+  margin: 0 7px 0 0;
+  margin: 0 0.4375rem 0 0;
+}
+
+/*--------------------------------------------------------------
+11.6 Comments
+--------------------------------------------------------------*/
+/* Comment Meta */
+.comment-list .edit-link {
+  margin-left: 0;
+  margin-right: 15px;
+  margin-right: 0.9375rem;
+}
+/* Comment Form */
+.comment-respond #cancel-comment-reply-link {
+  right: auto;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+12.0 Widgets
+--------------------------------------------------------------*/
+.widget li > ul,
+.widget li > ol {
+  margin-left: 0;
+  margin-right: 24px;
+  margin-right: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+12.1 Search Form Widget
+--------------------------------------------------------------*/
+.search-form .search-field {
+  text-align: right;
+}
+.search-form .search-submit {
+  float: left;
+}
+
+/*--------------------------------------------------------------
+12.2 Tag Cloud Widget
+--------------------------------------------------------------*/
+.widget_tag_cloud a, .widget_tag_cloud a:visited {
+  float: right;
+}
+
+/*--------------------------------------------------------------
+12.3 Custom Menu Widget
+--------------------------------------------------------------*/
+.widget_nav_menu .custom-menu-toggle {
+  right: auto;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+12.4 Pages Widget
+--------------------------------------------------------------*/
+.widget_pages .page-toggle {
+  right: auto;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+12.5 Categories Widget
+--------------------------------------------------------------*/
+.widget_categories .category-toggle {
+  right: auto;
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+12.6 Post List Widget
+--------------------------------------------------------------*/
+.widget-postlist-perennial .postlist-thumbnail {
+  float: right;
+}
+.widget-postlist-perennial .has-post-thumbnail .postlist-content {
+  margin: 0 90px 0 0;
+  margin: 0 5.625rem 0 0;
+}
+
+/*--------------------------------------------------------------
+14.1 Buttons
+--------------------------------------------------------------*/
+.btn, .btn:visited {
+  margin: 0 0 5px 1px;
+  margin: 0 0 0.3125rem 0.0625rem;
+}
+.btn.btn-icon:before {
+  margin: 0 0 0 8px;
+  margin: 0 0 0 0.5rem;
+}
+
+/*--------------------------------------------------------------
+14.3 Scroll Up
+--------------------------------------------------------------*/
+.back-to-top {
+  bottom: 90px;
+  left: -6px;
+  right: auto;
+  -webkit-transform: rotate(90deg) translate(100%, 0);
+          transform: rotate(90deg) translate(100%, 0);
+}
+.back-to-top a:after {
+  content: "\f053";
+  margin: 0 10px 0 0;
+  margin: 0 0.625rem 0 0;
+}
+
+/*--------------------------------------------------------------
+16.1 Featured Content
+--------------------------------------------------------------*/
+.featured-content-wrapper .flex-control-nav {
+  left: 4%;
+  right: auto;
+}
+
+/*--------------------------------------------------------------
+16.4 Infinite Scroll
+--------------------------------------------------------------*/
+#infinite-handle span:before {
+  display: none;
+}
+
+/**
+ * Using a highly-specific rule to make sure that all button styles
+ * will be reset
+ */
+#infinite-handle span button,
+#infinite-handle span button:hover,
+#infinite-handle span button:focus {
+  display: inline;
+  position: static;
+  padding: 0;
+  margin: 0;
+  border: none;
+  line-height: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+/**
+ * This is used to avoid unnecessary inner button spacing in Firefox
+ */
+#infinite-handle span button::-moz-focus-inner {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/*--------------------------------------------------------------
+16.6 Contact Info
+--------------------------------------------------------------*/
+.widget_contact_info .confit-address,
+.widget_contact_info .confit-phone,
+.widget_contact_info .confit-hours {
+  padding-left: 0;
+  padding-right: 30px;
+  padding-right: 1.875rem;
+}
+.widget_contact_info .confit-address:before,
+.widget_contact_info .confit-phone:before,
+.widget_contact_info .confit-hours:before {
+  right: 0;
+  left: auto;
+}
+
+/*--------------------------------------------------------------
+17.0 Media Queries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+17.1 Small devices (landscape phones, 544px and up)
+--------------------------------------------------------------*/
+@media (min-width: 544px) {
+  /* Navigation Misc: Navigation Post */
+  .post-navigation .nav-previous a {
+    padding: 0 45px 0 15px;
+    padding: 0 2.8125rem 0 0.9375rem;
+  }
+  .post-navigation .nav-next a {
+    padding: 0 15px 0 45px;
+    padding: 0 0.9375rem 0 2.8125rem;
+  }
+
+  /* Navigation Menus: Header Menu */
+  .has-menu-open .main-navigation {
+    left: 30%;
+    right: auto;
+  }
+
+  /* Skeleton: Sidebar */
+  .has-sidebar-open .sidebar-area {
+    left: auto;
+    right: 30%;
+  }
+
+  /* Content: Comments */
+  /* Comment Body */
+  .comment-list > li > .comment-body {
+    padding-left: auto;
+    padding-right: 83px;
+    padding-right: 5.1875rem;
+  }
+  .comment-list > li > .children .comment-body {
+    padding-left: auto;
+    padding-right: 65px;
+    padding-right: 4.0625rem;
+  }
+  .comment-list .bypostauthor .comment-body {
+    padding-left: auto;
+    padding-right: 98px;
+    padding-right: 6.125rem;
+  }
+  .comment-list > li > .children .bypostauthor .comment-body {
+    padding-left: auto;
+    padding-right: 80px;
+    padding-right: 5rem;
+  }
+  .comment-list .pingback .comment-body {
+    padding-right: 0;
+    padding-left: auto;
+  }
+
+  /* Comment Avatar */
+  .comment-list > li > .comment-body .comment-author .avatar,
+  .comment-list > li > .children .comment-body .comment-author .avatar {
+    right: 0;
+    left: auto;
+  }
+  .comment-list > li.bypostauthor > .comment-body .comment-author .avatar,
+  .comment-list > li > .children li.bypostauthor > .comment-body .comment-author .avatar {
+    right: 15px;
+    left: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+17.2 Medium devices (tablets, 768px and up)
+--------------------------------------------------------------*/
+@media (min-width: 768px) {
+  /* Elements: List */
+  ul, ol {
+    margin: 0 36px 32px 0;
+    margin: 0 2.25rem 2rem 0;
+  }
+
+  /* Navigation Menus: Header Menu */
+  .has-menu-open .main-navigation {
+    left: 50%;
+    right: auto;
+  }
+
+  /* Navigation Misc: Navigation Post */
+  .post-navigation .nav-previous a {
+    padding: 0 55px 0 30px;
+    padding: 0 3.4375rem 0 1.875rem;
+  }
+  .post-navigation .nav-next a {
+    padding: 0 30px 0 55px;
+    padding: 0 1.875rem 0 3.4375rem;
+  }
+
+  /* Skeleton: Sidebar */
+  .has-sidebar-open .sidebar-area {
+    left: auto;
+    right: 50%;
+  }
+
+  /* Content: Comments */
+  /* Comment Body */
+  .comment-list .bypostauthor .comment-body {
+    padding: 30px 123px 30px 30px;
+    padding: 1.875rem 7.6875rem 1.875rem 1.875rem;
+  }
+  .comment-list > li > .children .bypostauthor .comment-body {
+    padding: 30px 94px 30px 30px;
+    padding: 1.875rem 5.875rem 1.875rem 1.875rem;
+  }
+  /* Comment Avatar */
+  .comment-list > li.bypostauthor > .comment-body .comment-author .avatar,
+  .comment-list > li > .children li.bypostauthor > .comment-body .comment-author .avatar {
+    right: 30px;
+    left: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+17.3 Large devices (desktops, 992px and up)
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+  /* Elements: Image */
+  .entry-content-single img.alignnone.wide-image, .entry-content-single img.aligncenter.wide-image {
+    margin-left: auto;
+    margin-right: -55px;
+    margin-right: -3.4375rem;
+  }
+
+   /* Navigation Misc: Navigation Post */
+  .post-navigation .nav-previous a {
+    padding: 0 0 0 100px;
+    padding: 0 0 0 6.25rem;
+  }
+  .post-navigation .nav-previous a:before {
+    left: auto;
+    right: -55px;
+  }
+  .post-navigation .nav-next a {
+    padding: 0 100px 0 0;
+    padding: 0 6.25rem 0 0;
+  }
+  .post-navigation .nav-next a:before {
+    left: -55px;
+    right: auto;
+  }
+
+  /* Skeleton: Sidebar */
+  .sidebar-area .sidebar-close-control {
+    left: 15px;
+    right: auto;
+  }
+
+  /* Content: Entry (Posts,Pages) Block */
+  .post-wrapper-archive .hentry:nth-of-type(even) .entry-content-wrapper {
+    margin: 20% 20% 0 0;
+  }
+
+  /* Media: WP Caption */
+  .entry-content-single .wp-caption.alignnone img.wide-image, .entry-content-single .wp-caption.aligncenter img.wide-image {
+    margin-left: auto;
+    margin-right: -55px;
+    margin-right: -3.4375rem;
+  }
+}
+
+/*--------------------------------------------------------------
+17.4 Extra large devices (large desktops, 1200px and up)
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+  /* Elements: Image */
+  .entry-content-single img.alignnone.wide-image, .entry-content-single img.aligncenter.wide-image {
+    margin-left: auto;
+    margin-right: -130px;
+    margin-right: -8.125rem;
+  }
+
+  /* Navigation Misc: Navigation Post */
+  .post-navigation .nav-previous a {
+    padding: 0 0 0 100px;
+    padding: 0 0 0 6.25rem;
+  }
+  .post-navigation .nav-previous a:before {
+    left: auto;
+    right: -75px;
+  }
+  .post-navigation .nav-next a {
+    padding: 0 100px 0 0;
+    padding: 0 6.25rem 0 0;
+  }
+  .post-navigation .nav-next a:before {
+    left: -75px;
+    right: auto;
+  }
+
+  /* Skeleton: Sidebar */
+  .sidebar-area .sidebar-close-control {
+    left: 30px;
+    right: auto;
+  }
+
+  /* Media: WP Caption */
+  .entry-content-single .wp-caption.alignnone img.wide-image, .entry-content-single .wp-caption.aligncenter img.wide-image {
+    margin-left: auto;
+    margin-right: -130px;
+    margin-right: -8.125rem;
+  }
+}
+
+/*--------------------------------------------------------------
+17.5 Very Extra large devices (large desktops, 1280px and up)
+--------------------------------------------------------------*/
+@media (min-width: 1280px) {
+  /* Utilities: Scroll Up */
+  .back-to-top {
+    left: 12px;
+    right: auto;
+  }
+}
